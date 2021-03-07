@@ -1,18 +1,20 @@
 d3.json("samples.json").then((bioData) => {
     window.bioData = bioData;
     console.log(bioData);
+    var data = bioData;
 });
 
-var data = bioData;
+sample_values=data.samples[0].sample_values;
+otu_ids=data.samples[0].otu_ids;
 
 // function init() {
     // d3.selectAll("div#bar").node();
     var trace = {
-        x: data.samples[0].sample_values,
-        y: data.samples[0].otu_ids,
+        x: sample_values,
+        y: otu_ids,
         orientation: 'h',
         type: 'bar'
-    }
+    };
 
     var data = [trace];
 

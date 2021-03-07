@@ -6,7 +6,7 @@ d3.json("samples.json").then((bioData) => {
 var data = bioData;
 
 // function init() {
-//     d3.selectAll("div#bar").node();
+    // d3.selectAll("div#bar").node();
     var trace = {
         x: data.samples[0].sample_values,
         y: data.samples[0].otu_ids,

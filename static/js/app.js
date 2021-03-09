@@ -30,7 +30,7 @@ function buildChart() {
 
     var layout = {title: "Belly Button Biodiversity"};
     
-    Plotly.newPlot("#gauge", data, layout);
+    Plotly.newPlot("#bar", data, layout);
 // };
 
 d3.selectAll("body").on("change", updatePlotly);

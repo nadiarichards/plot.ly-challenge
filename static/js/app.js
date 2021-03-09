@@ -5,7 +5,11 @@ d3.json("samples.json").then((bioData) => {
     console.log(bioData);
 });
 
-
+// 1.Grab data from json file, name it
+// 2.Iterate through the data, pulling out relevant sample_values, otu_ids and otu-Labels
+// 3.Create a function to build a bar chart
+// 4.Create a function to handle dropdown
+// 5.Call BuildChart function first or add it to Init function to plot first person's data
 
 var data = bioData;
 

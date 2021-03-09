@@ -1,9 +1,16 @@
+jsObject = JSON.parse(jsonObject); 
+
 d3.json("samples.json").then((bioData) => {
     window.bioData = bioData;
     console.log(bioData);
 });
 
 var data = bioData;
+
+$(jQuery.parseJSON(JSON.stringify(dataArray))).each(function() {  
+    var ID = this.id;
+    var CLASS = this.class;
+});
 
 sample_values=data.samples[0].sample_values;
 otu_ids=data.samples[0].otu_ids;

@@ -5,12 +5,14 @@ d3.json("samples.json").then((bioData) => {
     console.log(bioData);
 });
 
+
+
 var data = bioData;
 
-Plotly.d3.json(jsonUrl, function(err, fig) {
+Plotly.d3.json("samples.json").then (function(err, data) {
     // assuming json is formatted as { "data": [/* */], "layout": {/* */} }
   
-    Plotly.plot('graph-id', fig.data, fig.layout);
+    Plotly.plot('#bar', data.samples.sample_values, data.samples.otu_ids);
   });
 
 $(jQuery.parseJSON(JSON.stringify(dataArray))).each(function() {  

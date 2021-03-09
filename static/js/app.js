@@ -1,14 +1,15 @@
 d3.json("samples.json").then((bioData) => {
     window.bioData = bioData;
     console.log(bioData);
-    var data = bioData;
 });
+
+var data = bioData;
 
 sample_values=data.samples[0].sample_values;
 otu_ids=data.samples[0].otu_ids;
 
-// function init() {
-    // d3.selectAll("div#bar").node();
+function init() {
+    d3.selectAll("div#bar").node();
     var trace = {
         x: sample_values,
         y: otu_ids,
@@ -20,7 +21,7 @@ otu_ids=data.samples[0].otu_ids;
 
     var layout = {title: "Belly Button Biodiversity"};
     
-    Plotly.newPlot("div#bar", data, layout);
+    Plotly.newPlot("#gauge", data, layout);
 // };
 
 

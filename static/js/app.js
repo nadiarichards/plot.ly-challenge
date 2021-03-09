@@ -1,5 +1,6 @@
 d3.json('samples.json').then(function(data) {
     data.samples.forEach (function(val)) {
+    var id = data.samples.map(id,
     var sample_values = data.samples[0].sample_values,
     var otu_ids = data.samples[0].otu_ids,
     var otu_labels = data.samples[0].otu_labels;
@@ -19,8 +20,10 @@ function buildChart() {
       data.samples.forEach(function(val) {
         trace1.x.push(val["sample_values"]);
         trace1.y.push(val["otu_ids"]);
-
       });
+
+      Plotly.newPlot(document.getElementById('bar'), [trace1]);
+};
 
 
 //     var trace = {

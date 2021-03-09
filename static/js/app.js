@@ -12,6 +12,8 @@ $(jQuery.parseJSON(JSON.stringify(dataArray))).each(function() {
     var CLASS = this.class;
 });
 
+json.forEach(function(obj) { console.log(obj.id); });
+
 sample_values=data.samples[0].sample_values;
 otu_ids=data.samples[0].otu_ids;
 

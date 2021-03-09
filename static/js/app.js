@@ -9,7 +9,7 @@ sample_values=data.samples[0].sample_values;
 otu_ids=data.samples[0].otu_ids;
 
 function init() {
-    d3.selectAll("div#bar").node();
+    d3.selectAll("div#bar").html("");
     var trace = {
         x: sample_values,
         y: otu_ids,

@@ -1,3 +1,12 @@
+d3.json('samples.json').then(function(data) {
+    var sample_values =
+    var otu_ids = 
+    var otu_labels = 
+
+})
+
+
+
 jsObject = JSON.parse(jsonObject); 
 
 d3.json("samples.json").then((bioData) => {
@@ -13,7 +22,10 @@ d3.json("samples.json").then((bioData) => {
 
 var data = bioData;
 
-Plotly.d3.json("samples.json").then (function(err, data) {
+sample_values=data.samples[0].sample_values;
+otu_ids=data.samples[0].otu_ids;
+
+Plotly.d3.json("samples.json").then(function(err, data) {
     // assuming json is formatted as { "data": [/* */], "layout": {/* */} }
   
     Plotly.plot('#bar', data.samples.sample_values, data.samples.otu_ids);
@@ -26,8 +38,7 @@ $(jQuery.parseJSON(JSON.stringify(dataArray))).each(function() {
 
 json.forEach(function(obj) { console.log(obj.id); });
 
-sample_values=data.samples[0].sample_values;
-otu_ids=data.samples[0].otu_ids;
+
 
 function buildChart() {
     d3.selectAll("div#bar").html("");

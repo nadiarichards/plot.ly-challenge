@@ -1,18 +1,55 @@
 d3.json('samples.json').then(function(data) {
-    var sample_values =
-    var otu_ids = 
-    var otu_labels = 
-
+    data.samples.forEach (function(val)) {
+    var sample_values = data.samples[0].sample_values,
+    var otu_ids = data.samples[0].otu_ids,
+    var otu_labels = data.samples[0].otu_labels;
+    }
+    console.log(data.samples.column_names);
 })
 
+function buildChart() {
+    d3.selectAll("div#bar").html("");
+    let trace1 = {
+        x: [],
+        y: [],
+        orientation: 'h',
+        type: 'bar'
+      };
+ 
+      data.samples.forEach(function(val) {
+        trace1.x.push(val["sample_values"]);
+        trace1.y.push(val["otu_ids"]);
+
+      });
 
 
-jsObject = JSON.parse(jsonObject); 
+//     var trace = {
+//         x: sample_values,
+//         y: otu_ids,
+//         orientation: 'h',
+//         type: 'bar'
+//     };
 
-d3.json("samples.json").then((bioData) => {
-    window.bioData = bioData;
-    console.log(bioData);
-});
+//     var data = [trace];
+
+//     var layout = {title: "Belly Button Biodiversity"};
+    
+//     Plotly.newPlot("#bar", data, layout);
+// // };
+
+d3.selectAll("body").on("change", updatePlotly);
+
+
+
+
+
+
+// jsObject = JSON.parse(jsonObject); 
+
+// d3.json("samples.json").then((bioData) => {
+//     window.bioData = bioData;
+//     console.log(bioData);
+// });
 
 // 1.Grab data from json file, name it
 // 2.Iterate through the data, pulling out relevant sample_values, otu_ids and otu-Labels
@@ -20,7 +57,7 @@ d3.json("samples.json").then((bioData) => {
 // 4.Create a function to handle dropdown
 // 5.Call BuildChart function first or add it to Init function to plot first person's data
 
-var data = bioData;
+// var data = bioData;
 
 sample_values=data.samples[0].sample_values;
 otu_ids=data.samples[0].otu_ids;
@@ -40,23 +77,7 @@ json.forEach(function(obj) { console.log(obj.id); });
 
 
 
-function buildChart() {
-    d3.selectAll("div#bar").html("");
-    var trace = {
-        x: sample_values,
-        y: otu_ids,
-        orientation: 'h',
-        type: 'bar'
-    };
 
-    var data = [trace];
-
-    var layout = {title: "Belly Button Biodiversity"};
-    
-    Plotly.newPlot("#bar", data, layout);
-// };
-
-d3.selectAll("body").on("change", updatePlotly);
 
 // This function is called when a dropdown menu item is selected
 function updatePlotly() {

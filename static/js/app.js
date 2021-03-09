@@ -7,6 +7,12 @@ d3.json("samples.json").then((bioData) => {
 
 var data = bioData;
 
+Plotly.d3.json(jsonUrl, function(err, fig) {
+    // assuming json is formatted as { "data": [/* */], "layout": {/* */} }
+  
+    Plotly.plot('graph-id', fig.data, fig.layout);
+  });
+
 $(jQuery.parseJSON(JSON.stringify(dataArray))).each(function() {  
     var ID = this.id;
     var CLASS = this.class;

@@ -1,6 +1,6 @@
-d3.json('samples.json').then(function(data) {
+d3.json('samples.json').then((data) => {
     data.samples.forEach (function(val)) {
-    var id = data.samples.map(id,
+    var id = data.samples.map.id,
     var sample_values = data.samples[0].sample_values,
     var otu_ids = data.samples[0].otu_ids,
     var otu_labels = data.samples[0].otu_labels;

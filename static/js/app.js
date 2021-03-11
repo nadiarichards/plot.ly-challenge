@@ -1,58 +1,56 @@
 var id_input = d3.select("#selDataset").node().value;
 
-function buildChart(stock) {
+function buildChart(id_input) {
 
-    d3.json('samples.json').then((data) => {
+    d3.json('/samples.json').then((data) => {
         data.samples.forEach (function(val) {
-            var id = +data.samples.id,
-            var sample_values = +data.samples.sample_values,
-            var cities = filteredCities.map(city => city.City)
-            var otu_ids = data.samples[0].otu_ids,
-            var otu_labels = data.samples[0].otu_labels;
-            }
-            console.log(data.samples.column_names);
-    })
-
-    function buildChart() {
-        d3.selectAll("div#bar").html("");
-        let trace1 = {
-            x: [],
-            y: [],
-            orientation: 'h',
-            type: 'bar'
-        };
-    
-        data.samples.forEach(function(val) {
-            trace1.x.push(val["sample_values"]);
-            trace1.y.push(val["otu_ids"]);
-        });
-
-        Plotly.newPlot(document.getElementById('bar'), [trace1]);
-    };
-
-    d3.json("data/data.json").then((data) => {
-        //  Create the Traces
-        var trace1 = {
-        x: data.organ,
-        y: data.survival.map(val => Math.sqrt(val)),
-        type: "box",
-        name: "Cancer Survival",
-        boxpoints: "all"
-        };
-    
-        // Create the data array for the plot
-        var data = [trace1];
-    
-        // Define the plot layout
-        var layout = {
-        title: "Square Root of Cancer Survival by Organ",
-        xaxis: { title: "Organ" },
-        yaxis: { title: "Square Root of Survival" }
-        };
-    
-        // Plot the chart to a div tag with id "plot"
-        Plotly.newPlot("plot", data, layout);
+            var id = val.id,
+            var sample_values = val.map(sample_value => val.sample_values),
+            var otu_ids = val.map(otu_id => val.otu_ids),
+            var otu_labels = val.map(otu_label => val.otu_labels),
+            console.log(id, sample_values, otu_ids, otu_labels);
     });
+
+    // function buildChart() {
+    //     d3.selectAll("div#bar").html("");
+    //     let trace1 = {
+    //         x: [],
+    //         y: [],
+    //         orientation: 'h',
+    //         type: 'bar'
+    //     };
+    
+    //     data.samples.forEach(function(val) {
+    //         trace1.x.push(val["sample_values"]);
+    //         trace1.y.push(val["otu_ids"]);
+    //     });
+
+    //     Plotly.newPlot(document.getElementById('bar'), [trace1]);
+    // };
+
+    // d3.json("data/data.json").then((data) => {
+    //     //  Create the Traces
+    //     var trace1 = {
+    //     x: data.organ,
+    //     y: data.survival.map(val => Math.sqrt(val)),
+    //     type: "box",
+    //     name: "Cancer Survival",
+    //     boxpoints: "all"
+    //     };
+    
+    //     // Create the data array for the plot
+    //     var data = [trace1];
+    
+    //     // Define the plot layout
+    //     var layout = {
+    //     title: "Square Root of Cancer Survival by Organ",
+    //     xaxis: { title: "Organ" },
+    //     yaxis: { title: "Square Root of Survival" }
+    //     };
+    
+    //     // Plot the chart to a div tag with id "plot"
+    //     Plotly.newPlot("plot", data, layout);
+    // });
 
 
 //     var trace = {
@@ -91,66 +89,66 @@ d3.selectAll("body").on("change", updatePlotly);
 
 // var data = bioData;
 
-sample_values=data.samples[0].sample_values;
-otu_ids=data.samples[0].otu_ids;
+// sample_values=data.samples[0].sample_values;
+// otu_ids=data.samples[0].otu_ids;
 
-Plotly.d3.json("samples.json").then(function(err, data) {
-    // assuming json is formatted as { "data": [/* */], "layout": {/* */} }
+// Plotly.d3.json("samples.json").then(function(err, data) {
+//     // assuming json is formatted as { "data": [/* */], "layout": {/* */} }
   
-    Plotly.plot('#bar', data.samples.sample_values, data.samples.otu_ids);
-  });
+//     Plotly.plot('#bar', data.samples.sample_values, data.samples.otu_ids);
+//   });
 
-$(jQuery.parseJSON(JSON.stringify(dataArray))).each(function() {  
-    var ID = this.id;
-    var CLASS = this.class;
-});
+// $(jQuery.parseJSON(JSON.stringify(dataArray))).each(function() {  
+//     var ID = this.id;
+//     var CLASS = this.class;
+// });
 
-json.forEach(function(obj) { console.log(obj.id); });
-
-
+// json.forEach(function(obj) { console.log(obj.id); });
 
 
 
-// This function is called when a dropdown menu item is selected
-function updatePlotly() {
-// Use D3 to select the dropdown menu
-var dropdownMenu = d3.select("#selDataset");
-// Assign the value of the dropdown menu option to a variable
-var dataset = dropdownMenu.node().value;
-
-var CHART = d3.selectAll("#bar").node();
-
-// Initialize x and y arrays
-var x = [];
-var y = [];
-
-switch(dataset) {
-    case "dataset1":
-    x = [1, 2, 3, 4, 5];
-    y = [1, 2, 4, 8, 16];
-    break;
-
-    case "dataset2":
-    x = [10, 20, 30, 40, 50];
-    y = [1, 10, 100, 1000, 10000];
-    break;
-
-    case "dataset3":
-    x = [100, 200, 300, 400, 500];
-    y = [10, 100, 50, 10, 0];
-    break;
-
-    default:
-    x = [1, 2, 3, 4, 5];
-    y = [1, 2, 3, 4, 5];
-    break;
-}
 
 
-// Note the extra brackets around 'x' and 'y'
-Plotly.restyle(CHART, "x", [x]);
-Plotly.restyle(CHART, "y", [y]);
-}
+// // This function is called when a dropdown menu item is selected
+// function updatePlotly() {
+// // Use D3 to select the dropdown menu
+// var dropdownMenu = d3.select("#selDataset");
+// // Assign the value of the dropdown menu option to a variable
+// var dataset = dropdownMenu.node().value;
+
+// var CHART = d3.selectAll("#bar").node();
+
+// // Initialize x and y arrays
+// var x = [];
+// var y = [];
+
+// switch(dataset) {
+//     case "dataset1":
+//     x = [1, 2, 3, 4, 5];
+//     y = [1, 2, 4, 8, 16];
+//     break;
+
+//     case "dataset2":
+//     x = [10, 20, 30, 40, 50];
+//     y = [1, 10, 100, 1000, 10000];
+//     break;
+
+//     case "dataset3":
+//     x = [100, 200, 300, 400, 500];
+//     y = [10, 100, 50, 10, 0];
+//     break;
+
+//     default:
+//     x = [1, 2, 3, 4, 5];
+//     y = [1, 2, 3, 4, 5];
+//     break;
+// }
+
+
+// // Note the extra brackets around 'x' and 'y'
+// Plotly.restyle(CHART, "x", [x]);
+// Plotly.restyle(CHART, "y", [y]);
+// }
 
 
 // d3.select('select').on('change', updatePlotly);

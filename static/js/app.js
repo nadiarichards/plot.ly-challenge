@@ -1,11 +1,11 @@
 d3.json('samples.json').then((data) => {
-    data.samples.forEach (function(val)) {
-    var id = data.samples.map.id,
-    var sample_values = data.samples[0].sample_values,
-    var otu_ids = data.samples[0].otu_ids,
-    var otu_labels = data.samples[0].otu_labels;
-    }
-    console.log(data.samples.column_names);
+    data.samples.forEach (function(val) {
+        var id = +data.samples.id,
+        var sample_values = +data.samples.sample_values,
+        var otu_ids = data.samples[0].otu_ids,
+        var otu_labels = data.samples[0].otu_labels;
+        }
+        console.log(data.samples.column_names);
 })
 
 function buildChart() {

@@ -8,7 +8,7 @@ function buildChart(id) {
         var OTU_id = OTU_top.map(d => "OTU" + d);
         var labels = data.samples[0].otu_labels.slice(0,10);
 
-        var trace = {
+        var trace1 = {
             x: sampleValues,
             y: OTU_id,
             text: labels,
@@ -19,13 +19,13 @@ function buildChart(id) {
             type: 'bar'
         };
 
-        var data1 = [trace];
+        var data1 = [trace1];
         var layout1= {title: "Top 10 OTU" , yaxis: {tickmode: "linear"}, margin: {l:100, r:100, t:100, b:30}
         };
     
     Plotly.newPlot("bar", data1, layout1);
 
-        var trace1 = {
+        var trace2 = {
             x: data.samples[0].otu_ids,
             y: data.samples[0].sample_values,
             mode: 'markers',
@@ -42,7 +42,7 @@ function buildChart(id) {
             width: 1000
         };
 
-        var data2 = [trace1];
+        var data2 = [trace2];
         
     Plotly.newPlot("bubble", data2, layout2);
     });

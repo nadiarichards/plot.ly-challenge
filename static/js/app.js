@@ -20,7 +20,7 @@ function buildChart(id) {
         };
 
         var data1 = [trace1];
-        var layout1= {title: "Top 10 OTU" , yaxis: {tickmode: "linear"}, margin: {l:100, r:100, t:100, b:30}
+        var layout1= {yaxis: {tickmode: "linear"}, margin: {l:100, r:100, t:30, b:30}
         };
     
     Plotly.newPlot("bar", data1, layout1);
@@ -83,7 +83,7 @@ function showGauge(freq) {
       {
         domain: { x: [0, 1], y: [0, 1] },
         value: freq,   
-        title: { text: "Belly Button Washing Frequency<br><sub>Scrubs per Week</sub>"}, 
+        title: { text: "<b>Belly Button Washing Frequency</b><br><sub>Scrubs per Week</sub>"}, 
         type: "indicator",
         mode: "gauge+number",
         delta: { reference: 400 },
@@ -92,7 +92,7 @@ function showGauge(freq) {
     ];
 
     var layout = { 
-      width: 600, 
+      width: 500, 
       height: 400
     };
     Plotly.newPlot('gauge', data, layout);

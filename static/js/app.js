@@ -83,7 +83,7 @@ function showGauge(freq) {
       {
         domain: { x: [0, 1], y: [0, 1] },
         value: freq,   
-        title: { text: "Belly Button Washing Frequency"}, 
+        title: { text: "Belly Button Washing Frequency<br><sub>Scrubs per Week</sub>"}, 
         type: "indicator",
         mode: "gauge+number",
         delta: { reference: 400 },
@@ -92,23 +92,9 @@ function showGauge(freq) {
     ];
 
     var layout = { 
-    // title: "Belly Button Washing Frequency", 
-    // size: 22,
-    // annotations: [{
-    //   text: "Scrubs per Week",
-    //     font: {
-    //     size: 15,
-    //   },
-    //   showarrow: false,
-    //   align: 'center',
-    //   x: 0.5,
-    //   y: 1.6,
-    //   xref: 'paper',
-    //   yref: 'paper',
       width: 600, 
       height: 400
-    // }]  
-};
+    };
     Plotly.newPlot('gauge', data, layout);
 };
 

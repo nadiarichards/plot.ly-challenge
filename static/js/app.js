@@ -25,11 +25,11 @@ function buildChart(id) {
             type: 'bar'
         };
 
-        var data = [trace];
-        var layout = {title: "Top 10 OTU" , yaxis: {tickmode: "linear"}, margin: {l:100, r:100, t:100, b:30}
+        var data1 = [trace];
+        var layout1= {title: "Top 10 OTU" , yaxis: {tickmode: "linear"}, margin: {l:100, r:100, t:100, b:30}
         };
     
-    Plotly.newPlot("bar", data, layout);
+    Plotly.newPlot("bar", data1, layout1);
 
         var trace1 = {
             x: data.samples[0].otu_ids,
@@ -42,24 +42,24 @@ function buildChart(id) {
             text: data.samples[0].otu_labels
         };
         
-        var layout1 = {
+        var layout2 = {
             xaxis: {title: "OTU ID"},
             height: 600,
             width: 1000
         };
 
-        var data1 = [trace1];
+        var data2 = [trace1];
         
-    Plotly.newPlot("bubble", data1, layout1);
+    Plotly.newPlot("bubble", data2, layout2);
     });
 }
 
 function getDemoInfo(id) {
     d3.json("samples.json").then((sampledata)=> {
-       var metadata = sampledata.metadata;
-       var result = metadata.filter(meta => meta.id.toString() === id)[0];
-       var demographicInfo = d3.select("#sample-metadata");
-       demographicInfo.html("");
+    var metadata = sampledata.metadata;
+    var result = metadata.filter(meta => meta.id.toString() === id)[0];
+    var demographicInfo = d3.select("#sample-metadata");
+    demographicInfo.html("");
         Object.entries(result).forEach((key) => {
             demographicInfo.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");
         });
@@ -78,7 +78,7 @@ function init() {
         sampledata.names.forEach(function(name) {
             dropdown.append("option").text(name).property("value");
         });
-        buildChart(sampledata.names[0]),
+        buildChart(sampledata.names[0]);
         getDemoInfo(sampledata.names[0]);
     });
 }

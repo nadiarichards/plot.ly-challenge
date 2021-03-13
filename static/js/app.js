@@ -78,22 +78,47 @@ function init() {
 }
 
 function showGauge(freq) {
-    console.log("FRQ",freq);
-  var data = [
-      {
+  var data = [{
+        // type: "pie",
+        // rotation: 90, 
+        // text: ["Very Low", "Low", "Average", "Good", "Excellent", ""],
         domain: { x: [0, 1], y: [0, 1] },
+        marker: {size: 28, color: '850000'},
         value: freq,   
         title: { text: "<b>Belly Button Washing Frequency</b><br><sub>Scrubs per Week</sub>"}, 
         type: "indicator",
         mode: "gauge+number",
-        delta: { reference: 400 },
-        gauge: { axis: { range: [null, 9] } }
-      }
-    ];
+        // delta: { reference: 400 },
+        gauge: { axis: { range: [null, 9]},
+        // bar: { color: "#669999" },
+        // bgcolor: "white",
+        borderwidth: 2,
+        bordercolor: "transparent",
+        steps: [
+          { range: [0, 1], color: "#f7f2ec" },
+          { range: [1, 2], color: "#f3f0e5" },
+          { range: [2, 3], color: "#e9e7c9" },
+          { range: [3, 4], color: "#e5e9b1" },
+          { range: [4, 5], color: "#d5e595" },
+          { range: [5, 6], color: "#b7cd8b" },
+          { range: [6, 7], color: "#87c080" },
+          { range: [7, 8], color: "#85bc8b" },
+          { range: [8, 9], color: "#80b586" }
+            ],
+    //  } }
+        }
+    }];
+
+    // var data = [trace];
 
     var layout = { 
       width: 500, 
-      height: 400
+      height: 400,
+      margin: { t: 0, b: 0 }
+    //   xaxis: {type:'category',zeroline:false, showticklabels:false,
+    //     showgrid: false, range: [-1, 1]},
+    //   yaxis: {type:'category',zeroline:false, showticklabels:false,
+    //     showgrid: false, range: [-1, 1]}
     };
     Plotly.newPlot('gauge', data, layout);
 };

@@ -20,10 +20,13 @@ Please see the screenshots below.
 ### Website Screenshots:
 
 1. Most common microbial species found in human navels as well as metadata based on a chosen ID using a dropdown:
+
 ![otu-types](https://github.com/nadiarichards/plot.ly-challenge/blob/main/images/otu_types.png)
 
 2. Gauge showing navel washing frequency based on a chosen ID using a dropdown:
+
 ![gauge](https://github.com/nadiarichards/plot.ly-challenge/blob/main/images/gauge.png)
 
 3. Bubble chart showing different microbial species based on frequency of their occurences on human navels.
+
 ![bubble_chart](https://github.com/nadiarichards/plot.ly-challenge/blob/main/images/bubble_chart.png)

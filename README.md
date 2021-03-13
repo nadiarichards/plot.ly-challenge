@@ -1,6 +1,7 @@
 # plot.ly-challenge
 
 The visualizations showing the bacteria colonizing human navels based on [this dataset.](http://robdunnlab.com/projects/belly-button-biodiversity/)
+Please see full page deployed on [GitHub Pages here.](https://nadiarichards.github.io/plot.ly-challenge/)
 
 Visualizations were made using JavaScript (Plot.ly library) by utilizing data from .json file.
 

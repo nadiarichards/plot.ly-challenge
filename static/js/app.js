@@ -28,6 +28,7 @@ function buildChart(id) {
         var trace2 = {
             x: data.samples[0].otu_ids,
             y: data.samples[0].sample_values,
+            hovertext: labels,
             mode: 'markers',
             marker: {
             color: data.samples[0].otu_ids,

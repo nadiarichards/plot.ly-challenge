@@ -1,9 +1,3 @@
-
-// var id_input = dropdownMenu.node().value;
-// var barChart = d3.selectAll("#bar").node();
-
-// buildChart (barChart, data);
-
 function buildChart(id) {
 
     d3.json("samples.json").then((data) => {
@@ -88,7 +82,7 @@ function showGauge(freq) {
   var data = [
       {
         domain: { x: [0, 1], y: [0, 1] },
-        value: freq,
+        value: freq,   
         title: { text: "Speed" },
         type: "indicator",
         mode: "gauge+number",

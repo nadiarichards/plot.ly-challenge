@@ -84,7 +84,7 @@ function showGauge(freq) {
         // text: ["Very Low", "Low", "Average", "Good", "Excellent", ""],
         domain: { x: [0, 1], y: [0, 1] },
         marker: {size: 28, color: '850000'},
-        value: freq,   
+        value: freq,
         title: { text: "<b>Belly Button Washing Frequency</b><br><sub>Scrubs per Week</sub>"}, 
         type: "indicator",
         mode: "gauge+number",

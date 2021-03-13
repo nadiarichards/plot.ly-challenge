@@ -84,6 +84,7 @@ function showGauge(freq) {
         domain: { x: [0, 1], y: [0, 1] },
         value: freq,   
         title: { text: "Belly Button Washing Frequency" },
+        subtitle: { text: "Scrubs per Week" },
         type: "indicator",
         mode: "gauge+number",
         delta: { reference: 400 },

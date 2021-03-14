@@ -9,7 +9,7 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 Please see the link to my code [here.](https://github.com/nadiarichards/plot.ly-challenge/blob/main/static/js/app.js) 
 
-## Menthods and languages used:
+## Methods and languages used:
 
 1. JavaScript
 2. Plot.ly library
